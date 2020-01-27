@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{auto.name}}
+{% endblock %}
+
+{% block body %}
+ 
+<div class="auto-cover" style="background-image: url({{  auto.photos }})">
+    <div class="container">
+       <div class="pt-60">
+        <h1>{{auto.name}}</h1>
+        <p>{{auto.version}}</p>
+        <p class="h2">
+            <strong>{{auto.prix | number_format(2, ',', ' ')}} MAD;</strong> 
+        </p>
+       </div>
+ 
+          
+    </div>
+</div>
+ 
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+                    <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                    <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Motorisation {{auto.motorisation}}</h5>
+                     </div>
+                    <p class="mb-1">{{auto.performance | raw}}</p>
+                 </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                      </div>
+                    <p class="mb-1">{{auto.details | raw}}</p>
+                 </a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+                Motorisation : {{auto.motorisation}}
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                Airbags : {% if auto.airbags == false %} Non {% else %} Rideaux {% endif%}
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+            Couleur : {{auto.couleurs}}
+            </a>
+             <a href="#" class="list-group-item list-group-item-action">
+            version : {{auto.version}}
+            </a>
+             <a href="#" class="list-group-item list-group-item-action">
+            Prix: {{auto.prix | number_format(2, '.', ',')}} MAD
+            </a>
+            </div>
+            </div>
+    
+        </div>
+    </div>
+</div>
+
+
+ 
+
+{% endblock %}

@@ -1,0 +1,29 @@
+ {% set url = path('showauto', {'id': auto.id}) %}
+ {% set Editurl = path('auto_edit', {'id': auto.id}) %}
+  {% set Deurl = path('auto_delete', {'id': auto.id}) %}
+
+  
+<div class="col-md-4">
+    <div class="card mb-3">
+        <h3 class="card-header">{{auto.name}}</h3>
+      <div class="card-body">
+        <h5 class="card-title">{{auto.version}}</h5>
+        <h6 class="card-subtitle text-muted">{{auto.motorisation}}</h6>
+      </div>
+      <img style="height: 200px; width: 100%; display: block;" src="{{auto.photos}}" alt="Card image">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">couleur:  {{auto.couleurs |upper }}</li>
+        <li class="list-group-item">airbags: {% if auto.airbags == false %} Non {% else %} Rideaux {% endif%}</li>
+        <li class="list-group-item">prix: {{auto.prix | number_format(2, '.', ',')}} MAD</li>
+      </ul>
+      <div class="card-body">
+        <a href="{{ url }}" class="badge badge-pill badge-dark">View link</a>
+        <a href="{{ Editurl }}" class="badge badge-pill badge-primary">Edit</a>
+        <a href="{{ Deurl }}" class="badge badge-pill badge-danger">Delete</a>
+      </div>
+</div>
+</div>
+ 
